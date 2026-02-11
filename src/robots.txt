@@ -1,0 +1,7 @@
+# robots.txt for integralcareerpathways.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://integralcareerpathways.com/sitemap.xml
