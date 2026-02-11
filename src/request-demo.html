@@ -77,6 +77,31 @@
       min-width: 200px;
     }
 
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-xs);
+    }
+
+    .checkbox-group label {
+      display: flex;
+      align-items: center;
+      font-weight: 400;
+      cursor: pointer;
+      padding: 0.5rem 0;
+    }
+
+    .checkbox-group input[type="checkbox"] {
+      width: auto;
+      margin-right: var(--spacing-xs);
+      cursor: pointer;
+    }
+
+    .other-input {
+      margin-top: var(--spacing-xs);
+      margin-left: 1.5rem;
+    }
+
     .hidden {
       display: none;
     }
@@ -192,19 +217,57 @@
 
           <!-- Role -->
           <div class="form-group">
-            <label for="role">Role *</label>
-            <input type="text" id="role" name="role" placeholder="e.g., Director of College Success, Principal" required>
+            <label for="role">Role / Title</label>
+            <input type="text" id="role" name="role" placeholder="e.g., Director of College Success, Principal">
           </div>
 
-          <!-- What are you exploring? -->
+          <!-- What are you exploring? (Multi-select) -->
           <div class="form-group">
-            <label for="exploring">What are you exploring? *</label>
-            <select id="exploring" name="exploring" required>
+            <label>What are you exploring? (Select all that apply) *</label>
+            <div class="checkbox-group">
+              <label>
+                <input type="checkbox" name="exploring[]" value="Career Connected Learning">
+                Career Connected Learning
+              </label>
+              <label>
+                <input type="checkbox" name="exploring[]" value="Counselor Training">
+                Counselor Training
+              </label>
+              <label>
+                <input type="checkbox" name="exploring[]" value="Mentoring / Workforce">
+                Mentoring / Workforce
+              </label>
+              <label>
+                <input type="checkbox" name="exploring[]" value="eLearning Design/Development">
+                eLearning Design/Development
+              </label>
+              <label>
+                <input type="checkbox" name="exploring[]" value="K12 Career Integrated Curriculum">
+                K12 Career Integrated Curriculum
+              </label>
+              <label>
+                <input type="checkbox" name="exploring[]" value="Workforce Development Program Design">
+                Workforce Development Program Design
+              </label>
+              <label>
+                <input type="checkbox" name="exploring[]" value="Not sure yet">
+                Not sure yet
+              </label>
+              <label>
+                <input type="checkbox" id="exploring-other" name="exploring[]" value="Other">
+                Other needs
+              </label>
+              <input type="text" id="exploring-other-text" name="exploring_other_text" class="other-input hidden" placeholder="Please specify...">
+            </div>
+          </div>
+
+          <!-- Desired Next Step -->
+          <div class="form-group">
+            <label for="next_step">Desired next step</label>
+            <select id="next_step" name="next_step">
               <option value="">Select an option</option>
-              <option value="Career Connected Learning">Career Connected Learning</option>
-              <option value="Counselor Training">Counselor Training</option>
-              <option value="Mentoring / Workforce">Mentoring / Workforce</option>
-              <option value="Not sure yet">Not sure yet</option>
+              <option value="Schedule a Zoom demo call">Schedule a Zoom demo call</option>
+              <option value="Review a tailored portfolio of our work">Review a tailored portfolio of our work</option>
             </select>
           </div>
 
@@ -248,6 +311,19 @@
       document.getElementById('utm_campaign').value = urlParams.get('utm_campaign') || '';
       document.getElementById('utm_content').value = urlParams.get('utm_content') || '';
       document.getElementById('utm_term').value = urlParams.get('utm_term') || '';
+
+      // Handle "Other needs" text field visibility
+      const exploringOtherCheckbox = document.getElementById('exploring-other');
+      const exploringOtherText = document.getElementById('exploring-other-text');
+
+      exploringOtherCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+          exploringOtherText.classList.remove('hidden');
+        } else {
+          exploringOtherText.classList.add('hidden');
+          exploringOtherText.value = '';
+        }
+      });
     });
 
     // Handle form submission
@@ -257,9 +333,37 @@
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
 
+      // Validate at least one checkbox is selected
+      const checkboxes = form.querySelectorAll('input[name="exploring[]"]');
+      const isChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+
+      if (!isChecked) {
+        alert('Please select at least one option for what you are exploring.');
+        return;
+      }
+
       const formData = new FormData(form);
       const submitButton = form.querySelector('button[type="submit"]');
       const originalButtonText = submitButton.textContent;
+
+      // If "Other" is checked and has text, append it to the Other value
+      const exploringOther = document.getElementById('exploring-other');
+      const exploringOtherText = document.getElementById('exploring-other-text');
+      if (exploringOther.checked && exploringOtherText.value.trim()) {
+        // Remove the generic "Other" value
+        formData.delete('exploring[]');
+
+        // Re-add all checked values
+        checkboxes.forEach(checkbox => {
+          if (checkbox.checked) {
+            if (checkbox.id === 'exploring-other') {
+              formData.append('exploring[]', `Other: ${exploringOtherText.value.trim()}`);
+            } else {
+              formData.append('exploring[]', checkbox.value);
+            }
+          }
+        });
+      }
 
       // Disable button and show loading state
       submitButton.disabled = true;
