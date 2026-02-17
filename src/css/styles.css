@@ -733,3 +733,72 @@ a:hover {
 .case-study-image:hover {
   box-shadow: var(--shadow-md);
 }
+
+/* Hero Compact - Reduced padding for case studies page */
+.hero-compact {
+  min-height: 50vh;
+  padding-top: 100px;
+}
+
+/* Constrained Title - Match text block width */
+.constrained-title {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Case Study Thumbnail Navigation */
+.case-study-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.case-study-thumb {
+  display: block;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all var(--transition-base);
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+}
+
+.case-study-thumb:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.case-study-thumb img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.case-study-thumb h4 {
+  padding: var(--spacing-md);
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.case-study-thumb:hover h4 {
+  color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .hero-compact {
+    min-height: 40vh;
+  }
+
+  .case-study-nav {
+    grid-template-columns: 1fr;
+  }
+}
