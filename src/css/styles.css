@@ -718,14 +718,14 @@ a:hover {
 
 /* Case Study Image Component */
 .case-study-image {
-  width: 100%;
+  width: 70%;
   max-width: 100%;
   height: auto;
   display: block;
   background: var(--bg-tertiary);
   border-radius: var(--radius-lg);
   padding: var(--spacing-lg);
-  margin: var(--spacing-lg) 0;
+  margin: var(--spacing-lg) auto;
   box-shadow: var(--shadow-sm);
   transition: all var(--transition-base);
 }
