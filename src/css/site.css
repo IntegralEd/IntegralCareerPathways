@@ -161,9 +161,9 @@
 }
 
 .checkbox-group {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xs);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 var(--spacing-md);
 }
 
 .checkbox-group label {
@@ -348,6 +348,24 @@
   display: block;
   margin-top: 0.25rem;
   font-weight: 400;
+}
+
+/* ============================================
+   CHECKBOX GROUP — 1 column on mobile
+   ============================================ */
+
+@media (max-width: 768px) {
+  .checkbox-group {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   FORM INSIDE CTA-PLUM — left-align labels
+   ============================================ */
+
+.cta-plum .form-container {
+  text-align: left;
 }
 
 /* ============================================
