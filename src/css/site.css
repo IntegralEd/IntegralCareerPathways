@@ -366,6 +366,7 @@
 
 .service-content p {
   margin-bottom: 0.5rem;
+  max-width: none;
 }
 
 .service-content h4 {
