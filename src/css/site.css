@@ -336,3 +336,17 @@
     grid-column: 1 !important;
   }
 }
+
+/* ============================================
+   DESIGN PRINCIPLES — topic/description spacing
+   ============================================ */
+
+.outcomes-grid .principle-topic {
+  display: block;
+}
+
+.outcomes-grid .principle-desc {
+  display: block;
+  margin-top: 0.25rem;
+  font-weight: 400;
+}
