@@ -243,3 +243,17 @@
     max-width: 100%;
   }
 }
+
+/* ============================================
+   APPROACH CARDS (force 3-column)
+   ============================================ */
+
+.approach-cards {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 768px) {
+  .approach-cards {
+    grid-template-columns: 1fr;
+  }
+}
