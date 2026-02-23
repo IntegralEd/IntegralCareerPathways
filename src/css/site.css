@@ -1,0 +1,211 @@
+/**
+ * IntegralCareerPathways.com — Site-Specific Styles
+ * The base theme is provided by vendor/integralthemes/theme/theme.css
+ */
+
+/* ============================================
+   CASE STUDY IMAGE
+   ============================================ */
+
+.case-study-image {
+  width: 70%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+}
+
+.case-study-image:hover {
+  box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 768px) {
+  .case-study-image {
+    width: 100%;
+  }
+}
+
+/* ============================================
+   CASE STUDY NAVIGATION (thumbnail grid)
+   ============================================ */
+
+.case-study-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  max-width: 900px;
+  margin: var(--spacing-xl) auto 0;
+}
+
+.case-study-thumb {
+  display: block;
+  background: var(--bg-primary);
+  border: 2px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all var(--transition-base);
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+}
+
+.case-study-thumb:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.case-study-thumb img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  display: block;
+  padding: var(--spacing-md);
+  background: var(--bg-tertiary);
+}
+
+.case-study-thumb h4 {
+  padding: var(--spacing-md);
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.case-study-thumb:hover h4 {
+  color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .case-study-nav {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   FAQ / CASE STUDY TEXT FIXES
+   ============================================ */
+
+.faq-item p {
+  max-width: none;
+  margin-bottom: var(--spacing-sm);
+}
+
+.faq-item p:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   CONTACT FORM
+   ============================================ */
+
+.form-container {
+  max-width: 700px;
+  margin: var(--spacing-xl) auto 0;
+}
+
+.form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+}
+
+.form-submit {
+  text-align: center;
+  margin-top: var(--spacing-lg);
+}
+
+.form-submit .btn {
+  min-width: 200px;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 0.5rem 0;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: auto;
+  margin-right: var(--spacing-xs);
+  cursor: pointer;
+}
+
+.other-input {
+  margin-top: var(--spacing-xs);
+  margin-left: 1.5rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.success-message {
+  text-align: center;
+  padding: var(--spacing-xl);
+  background: var(--bg-accent);
+  border: 2px solid var(--primary);
+  border-radius: var(--radius-md);
+  margin: var(--spacing-xl) 0;
+}
+
+.success-message h3 {
+  color: var(--primary-dark);
+  margin-bottom: var(--spacing-sm);
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
