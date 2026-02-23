@@ -359,3 +359,24 @@
     display: none;
   }
 }
+
+/* ============================================
+   CASE STUDY TEXT SPACING
+   ============================================ */
+
+.service-content p {
+  margin-bottom: 0.5rem;
+}
+
+.service-content h4 {
+  margin-top: var(--spacing-md);
+}
+
+.service-content .service-list {
+  margin: var(--spacing-xs) 0;
+}
+
+.service-content .service-list li {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
