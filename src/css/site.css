@@ -8,25 +8,24 @@
    ============================================ */
 
 .case-study-image {
-  width: 70%;
-  max-width: 100%;
+  float: right;
+  width: 45%;
   height: auto;
-  display: block;
-  background: var(--bg-tertiary);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-lg);
-  margin: var(--spacing-lg) 0;
-  box-shadow: var(--shadow-sm);
-  transition: all var(--transition-base);
+  margin: 0 0 var(--spacing-md) var(--spacing-lg);
 }
 
-.case-study-image:hover {
-  box-shadow: var(--shadow-md);
+/* Clearfix so section expands around the floated image */
+.service-content::after {
+  content: '';
+  display: table;
+  clear: both;
 }
 
 @media (max-width: 768px) {
   .case-study-image {
+    float: none;
     width: 100%;
+    margin: 0 0 var(--spacing-md) 0;
   }
 }
 
