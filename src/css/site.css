@@ -350,3 +350,13 @@
   margin-top: 0.25rem;
   font-weight: 400;
 }
+
+/* ============================================
+   TIMELINE — hide icons on mobile
+   ============================================ */
+
+@media (max-width: 768px) {
+  .timeline-icon-wrapper {
+    display: none;
+  }
+}
