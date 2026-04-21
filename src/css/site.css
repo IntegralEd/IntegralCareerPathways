@@ -407,3 +407,156 @@
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
 }
+
+/* ============================================
+   IKIGAI FEATURE CARD
+   ============================================ */
+
+.ikigai-card {
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+/* Thumbnail / launch button */
+.ikigai-thumb {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #1a0a2e;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.ikigai-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: filter var(--transition-base);
+}
+
+.ikigai-thumb-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(96, 11, 104, 0.45);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.ikigai-thumb:hover img { filter: brightness(0.75); }
+.ikigai-thumb:hover .ikigai-thumb-overlay { opacity: 1; }
+
+.ikigai-thumb-overlay span {
+  background: #fff;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.6rem 1.5rem;
+  border-radius: 100px;
+  letter-spacing: 0.02em;
+  font-family: var(--font-primary);
+}
+
+/* Copy body */
+.ikigai-copy {
+  padding: 2rem 2.5rem 2.5rem;
+}
+
+.ikigai-type-tag {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  padding: 0.25rem 0.65rem;
+  margin-bottom: 0.875rem;
+}
+
+.ikigai-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 1.25rem;
+  line-height: 1.25;
+}
+
+.ikigai-copy p {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin: 0 0 0.875rem;
+}
+
+.ikigai-section-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 1.75rem 0 0.625rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--bg-accent, #efdbf1);
+}
+
+.ikigai-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.25rem 0 0.875rem 0;
+}
+
+.ikigai-list li {
+  position: relative;
+  padding-left: 1.25rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 0.3rem;
+}
+
+.ikigai-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--accent-magenta, #b8357b);
+  font-size: 0.75rem;
+  top: 0.25rem;
+}
+
+/* CTA invitation */
+.ikigai-cta {
+  margin-top: 2.5rem;
+  padding: 1.75rem 2rem;
+  background: var(--bg-accent, #efdbf1);
+  border-radius: 12px;
+  border: 1px solid rgba(96, 11, 104, 0.15);
+}
+
+.ikigai-cta-text {
+  font-size: 1.05rem !important;
+  font-weight: 500;
+  color: var(--text-primary) !important;
+  margin: 0 0 1.25rem !important;
+}
+
+.ikigai-cta-buttons {
+  display: flex;
+  gap: 0.875rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .ikigai-copy { padding: 1.5rem; }
+  .ikigai-title { font-size: 1.25rem; }
+  .ikigai-cta-buttons { flex-direction: column; }
+  .ikigai-cta-buttons .btn { width: 100%; justify-content: center; }
+}
