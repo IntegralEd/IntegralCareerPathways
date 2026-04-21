@@ -3,6 +3,16 @@
   "version": "1.0.0",
   "description": "IntegralEd Platform - Modern educational platform",
   "siteSlug": "integralcareerpathways",
+  "footer": {
+    "siteName": "Career-Connected Learning",
+    "pageLinks": [
+      { "href": "#home",         "label": "Home" },
+      { "href": "#services",     "label": "What We Do" },
+      { "href": "#approach",     "label": "Approach" },
+      { "href": "#case-studies", "label": "Case Studies" },
+      { "href": "#contact",      "label": "Contact" }
+    ]
+  },
   "scripts": {
     "build": "node build.js",
     "dev": "python3 -m http.server 8000",
